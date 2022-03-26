@@ -23,7 +23,7 @@ the board looks like this:
 ...
 ```
 
-Players 1 and 2 will alternate inputting their plays using the keys 1-9.
+Players 1 and 2 will alternate inputting their plays using the keys 1-9 and pressing enter.
 These keys correspond to the board as such:
 ```
 123
