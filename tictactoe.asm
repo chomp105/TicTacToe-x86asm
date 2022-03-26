@@ -56,9 +56,9 @@ print:
 	xor ecx, ecx			; zero ecx for checkh loop
 	mov esi, board			; move board into esi for checkh loop
 checkh:
-	mov al, esi[0]			; move esi[0] into al
-	add al, esi[1]			; al += esi[1]
-	add al, esi[2]			; al += esi[2]
+	mov al, [esi]			; move esi[0] into al
+	add al, [esi+1]			; al += esi[1]
+	add al, [esi+2]			; al += esi[2]
 	call checkwin			; check for three in a row
 	add esi, 3			; point esi to the next three bytes in board
 	inc ecx				; increment loop counter
@@ -66,20 +66,20 @@ checkh:
 	jl checkh			; jump to checkh
 	xor ecx, ecx			; zero ecx for checkv loop
 checkv:
-	mov al, board[ecx + 0]		; move board[ecx + 0] into al
-	add al, board[ecx + 3]		; al += board[ecx + 3]
-	add al, board[ecx + 6]		; al += board[ecx + 6]
+	mov al, [board+ecx]		; move board[ecx] into al
+	add al, [board+ecx+3]		; al += board[ecx + 3]
+	add al, [board+ecx+6]		; al += board[ecx + 6]
 	call checkwin			; check for three in a row
 	inc ecx				; increment loop counter
 	cmp ecx, 3			; if ecx < 3
 	jl checkv			; jump to checkv
-	mov al, board[0]		; move board[0] into al (start of first diagonal check)
-	add al, board[4]		; al += board[4]
-	add al, board[8]		; al += board[8]
+	mov al, [board]			; move board[0] into al (start of first diagonal check)
+	add al, [board+4]		; al += board[4]
+	add al, [board+8]		; al += board[8]
 	call checkwin			; check for three in a row
-	mov al, board[2]		; move board[2] into al (start of second diagonal check)
-	add al, board[4]		; al += board[4]
-	add al, board[6]		; al += board[6]
+	mov al, [board+2]		; move board[2] into al (start of second diagonal check)
+	add al, [board+4]		; al += board[4]
+	add al, [board+6]		; al += board[6]
 	call checkwin			; check for three in a row
 	pop ecx	
 	inc ecx				; increment loop counter
