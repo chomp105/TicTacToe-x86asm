@@ -3,9 +3,10 @@ GNU GPL v3.0
 
 Requirements
 ------------
-1. A linux operating system
-2. The nasm assembler (fasm should also work)
-3. The ld linker
+1. An x86 processor (32-bit and 64-bit should work)
+2. A linux operating system
+3. The nasm assembler (fasm should also work)
+4. The ld linker
 
 Installation
 ------------
