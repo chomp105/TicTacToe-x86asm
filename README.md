@@ -1,5 +1,5 @@
 # TicTacToe
-GPL v3.0
+GNU GPL v3.0
 
 Requirements
 ------------
