@@ -6,8 +6,8 @@ Requirements
 ------------
 1. An x86 processor (32-bit and 64-bit should work)
 2. A linux operating system
-3. The nasm assembler (fasm should also work)
-4. The ld linker
+3. The NetWide Assembler (NASM. FASM should also work)
+4. The GNU Linker (ld)
 
 Installation
 ------------
