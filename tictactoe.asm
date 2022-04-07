@@ -14,7 +14,7 @@ section .bss
 section .text
 	global _start
 _start:
-	push ecx
+	push ecx			; save ecx value
 	mov eax, 4 			; write
 	mov ebx, 1			; stdout
 	mov ecx, clear			; clear screen code
@@ -26,7 +26,7 @@ _start:
 	xor ecx, ecx			; zero ecx for print loop
 	mov esi, board			; move board into esi for print loop
 print:
-	push ecx
+	push ecx			; save ecx value
 	mov eax, 4			; write
 	mov ecx, esi			; write board
 	mov edx, 3			; write 3 bytes
@@ -35,7 +35,7 @@ print:
 	mov ecx, newline		; write newline
 	mov edx, 1			; write 1 byte
 	int 0x80			; syscall
-	pop ecx	
+	pop ecx				; restore ecx value
 	inc ecx				; increment loop counter
 	add esi, 3			; point esi at the next 3 bytes of board
 	cmp ecx, 3			; if ecx < 3
@@ -81,7 +81,7 @@ checkv:
 	add al, [board+4]		; al += board[4]
 	add al, [board+6]		; al += board[6]
 	call checkwin			; check for three in a row
-	pop ecx	
+	pop ecx				; restore ecx value
 	inc ecx				; increment loop counter
 	cmp ecx, 9			; if ecx < 9
 	jl _start			; jump to _start (gameloop)
