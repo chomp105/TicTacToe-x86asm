@@ -1,6 +1,5 @@
 # TicTacToe
 GNU GPL v3.0
-(please note that this program will most likely not work in online assemblers)
 
 Requirements
 ------------
